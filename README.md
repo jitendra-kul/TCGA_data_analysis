@@ -73,6 +73,48 @@ These descriptions highlight the key findings from your machine learning analysi
 The results complement our earlier clustering analysis by demonstrating that the distinct gene expression patterns observed in the t-SNE plot can be effectively leveraged for automated cancer type classification.
 
 
+#Use logistic regression or feature importance from Random Forest to find genes that best distinguish one specific cancer type from all others. Which genes have the highest predictive value?
+
+![gene_importance_heatmap](https://github.com/user-attachments/assets/86bf4b63-160f-4c25-ae78-f6749acd3ea2)
+
+This heatmap shows how important each of the top 30 genes is for predicting different cancer types. Darker blue indicates higher importance. Key observations:
+
+TP53 shows high importance across multiple cancer types, particularly for BRCA, LUSC, BLCA, and HNSC. This makes biological sense as TP53 is the most commonly mutated gene in human cancers.
+Different cancer types rely on different gene signatures. For example, THCA (thyroid cancer) shows high importance for ESR1 and PPARG, while PRAD (prostate cancer) shows high importance for AR (androgen receptor).
+The clustering at the top groups cancer types with similar gene importance patterns. This reveals molecular similarities between cancers (e.g., BRCA and LUAD cluster together).
+
+![top_20_genes_overall](https://github.com/user-attachments/assets/66eb8ed6-b480-4429-a94c-280be1232032)
+
+This bar chart ranks genes by their average importance across all cancer types:
+
+TP53 has the highest overall importance, confirming its central role in cancer biology
+ESR1 (estrogen receptor 1) and AR (androgen receptor) rank next, reflecting their roles in hormone-responsive cancers
+PPARG is highly ranked, important for metabolism and differentiation
+LRRK2, SOX9, and RASSF7 show high importance across multiple cancer types
+
+These genes represent master regulators that influence multiple cancer pathways and can distinguish between different cancer types.
+
+![top_genes_for_ACC](https://github.com/user-attachments/assets/0fe989f2-c4c1-45f5-abb7-9035ce32bb45)
+
+This shows genes specifically important for identifying adrenocortical carcinoma (ACC):
+
+TP53 is again the most important gene
+ESR1 and CCND2 (cyclin D2) show high specificity for ACC
+Several genes appear important specifically for ACC that aren't in the overall top 20, such as PER2 (a circadian rhythm gene)
+The presence of SOX4 and SOX9 (transcription factors) suggests important developmental pathways in ACC.
+
+#Biological Significance
+Many of these top genes have established roles in cancer:
+
+#TP53: Tumor suppressor that regulates cell cycle and prevents cancer
+#ESR1: Estrogen receptor involved in breast and other hormone-responsive cancers
+#AR: Androgen receptor critical in prostate cancer
+#CCND2: Cell cycle regulator
+#SOX9: Developmental transcription factor increasingly recognized in cancer
+
+The Random Forest model has effectively identified both well-established cancer genes that distinguish between cancer types.
+
+
 
 
 
