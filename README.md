@@ -43,6 +43,37 @@ Principal Component Analysis (PCA) shows a linear dimensionality reduction of th
 This plot shows the same PCA projection, but points are colored by k-means cluster assignment (24 clusters) and shaped by cancer type. The limited alignment between colors (clusters) and shapes (cancer types) explains the low agreement score of 5.34%. K-means struggles to separate cancer types in this high-dimensional space, often grouping samples from different cancer types together or splitting single cancer types across multiple clusters. This suggests that standard distance-based clustering may not fully capture the complex biological relationships between cancer types.
 
 
+#Build a machine learning model to predict cancer type based on gene expression levels.
+1. Use Random Forest or Support Vector Machine (SVM)
+2. Split data into train/test sets (80/20 split)
+3. Evaluate using accuracy, precision, recall, and F1-score
+
+![rf_metrics_by_cancer_type](https://github.com/user-attachments/assets/c08b614e-e5d5-4ba4-8f25-70c9e9054c63)
+
+This chart shows the performance of the Random Forest model for each cancer type across three key metrics: Precision (green), Recall (blue), and F1-Score (red). Most cancer types show excellent performance with metrics above 0.90, indicating the model can accurately identify and distinguish between different cancer types based on gene expression patterns. Cancer types like LAML, DLBC, THCA, and OV show particularly high performance across all metrics (close to 1.0), while cancer types like LUSC and HNSC have slightly lower precision. This suggests that gene expression signatures are highly specific to each cancer type, allowing for accurate classification.
+
+![model_accuracy_comparison](https://github.com/user-attachments/assets/fe8ebb3d-a31e-44b2-b20b-e2a14ff10f19)
+
+This chart compares the overall accuracy of the Random Forest and SVM models. The Random Forest model significantly outperforms SVM with an accuracy of 92.07% versus 31.87% for SVM. This substantial difference suggests that the complex, non-linear patterns in gene expression data are better captured by the ensemble decision tree approach of Random Forest compared to the linear boundaries created by our SVM implementation. This makes Random Forest the preferred model for cancer type prediction from gene expression data.
+
+![rf_confusion_matrix_heatmap](https://github.com/user-attachments/assets/650bdbb5-910b-41a4-910d-92ef60f9de54)
+
+The confusion matrix heatmap visualizes prediction patterns for the top 10 cancer types. The strong diagonal of dark blue squares indicates that most samples are correctly classified into their respective cancer types. The matrix is normalized by row, showing the proportion of each actual cancer type assigned to predicted categories. The near-perfect diagonal pattern with minimal off-diagonal elements demonstrates the model's ability to distinguish between cancer types with high precision. This supports our observation from the t-SNE plot that gene expression patterns are highly specific to cancer types.
+
+These descriptions highlight the key findings from your machine learning analysis:
+
+#Random Forest achieves excellent performance (92% accuracy)
+
+#Different cancer types can be accurately distinguished based on gene expression
+
+#The model performs consistently well across various cancer types
+
+#The confusion matrix confirms minimal misclassification between cancer types
+
+The results complement our earlier clustering analysis by demonstrating that the distinct gene expression patterns observed in the t-SNE plot can be effectively leveraged for automated cancer type classification.
+
+
+
 
 
 
